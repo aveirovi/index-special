@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pegadinha do Botão</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            position: relative;
+            width: 1080px;
+            height: 500px;
+            border: 1px dashed #888;
+        }
+
+        #botaoFujão {
+            position: absolute;
+            padding: 7px 10px;
+            background-color: #92D050;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id="botaoFujão">Tente me pegar, se conseguir</button>
+    </div>
+
+    <script>
+        const botao = document.getElementById('botaoFujão');
+        const container = document.getElementById('container');
+
+        botao.addEventListener('mouseover', () => {
+            const largura = container.clientWidth;
+            const altura = container.clientHeight;
+            
+            const novaPosicaoX = Math.random() * (largura - botao.offsetWidth);
+            const novaPosicaoY = Math.random() * (altura - botao.offsetHeight);
+            
+            botao.style.left = `${novaPosicaoX}px`;
+            botao.style.top = `${novaPosicaoY}px`;
+        });
+	botao.addEventListener('click', () => {
+            window.location.href = "mensagem.html";
+        });
+    </script>
+</body>
+</html>
